@@ -300,44 +300,52 @@ export function SettingsView() {
       {/* Danger Zone */}
       <Card style={{ borderLeft: `3px solid ${C.red}`, marginBottom: "1rem" }}>
         <SectionTitle accent={C.red}>Danger Zone</SectionTitle>
-        {!resetConfirm ? (
-          <button style={btn(C.red)} onClick={() => setResetConfirm(true)}>
-            Reset All Data
-          </button>
-        ) : (
-          <div>
-            <p style={{ fontFamily: FONT.mono, fontSize: "0.72rem", color: C.red, marginBottom: "0.5rem", lineHeight: 1.5 }}>
-              This will permanently delete all projects, sprints, events, and actions. Type RESET to confirm.
-            </p>
-            <div style={{ display: "flex", gap: "0.5rem", alignItems: "center", flexWrap: "wrap" }}>
-              <input
-                style={{ ...iStyle, width: 160 }}
-                value={resetText}
-                onChange={(e) => setResetText(e.target.value)}
-                placeholder="Type RESET"
-                autoFocus
-              />
-              <button
-                style={{
-                  background: C.red, color: "#fff", border: "none", borderRadius: 5,
-                  padding: "0.35rem 0.85rem", fontFamily: FONT.mono, fontSize: "0.72rem",
-                  cursor: resetText === "RESET" ? "pointer" : "not-allowed",
-                  opacity: resetText === "RESET" ? 1 : 0.5,
-                  fontWeight: "bold",
-                }}
-                disabled={resetText !== "RESET"}
-                onClick={() => {
-                  resetAllData();
-                  setResetConfirm(false);
-                  setResetText("");
-                }}
-              >
-                Confirm Reset
-              </button>
-              <button style={btn(C.textDim)} onClick={() => { setResetConfirm(false); setResetText(""); }}>×</button>
+
+        {/* Reset to defaults */}
+        <div style={{ marginBottom: "1rem" }}>
+          <p style={{ fontFamily: FONT.mono, fontSize: "0.72rem", color: C.textMuted, marginBottom: "0.5rem", lineHeight: 1.6 }}>
+            <strong style={{ color: C.textSoft }}>Reset to default values</strong> — replaces all your data with the
+            original sample dataset (projects, sprints, events, actions). Your current data will be lost.
+          </p>
+          {!resetConfirm ? (
+            <button style={btn(C.red)} onClick={() => setResetConfirm(true)}>
+              ↺ Reset to Defaults
+            </button>
+          ) : (
+            <div>
+              <p style={{ fontFamily: FONT.mono, fontSize: "0.72rem", color: C.red, marginBottom: "0.5rem", lineHeight: 1.5 }}>
+                All current data will be replaced with the default sample data. Type <strong>RESET</strong> to confirm.
+              </p>
+              <div style={{ display: "flex", gap: "0.5rem", alignItems: "center", flexWrap: "wrap" }}>
+                <input
+                  style={{ ...iStyle, width: 160 }}
+                  value={resetText}
+                  onChange={(e) => setResetText(e.target.value)}
+                  placeholder="Type RESET"
+                  autoFocus
+                />
+                <button
+                  style={{
+                    background: C.red, color: "#fff", border: "none", borderRadius: 5,
+                    padding: "0.35rem 0.85rem", fontFamily: FONT.mono, fontSize: "0.72rem",
+                    cursor: resetText === "RESET" ? "pointer" : "not-allowed",
+                    opacity: resetText === "RESET" ? 1 : 0.5,
+                    fontWeight: "bold",
+                  }}
+                  disabled={resetText !== "RESET"}
+                  onClick={() => {
+                    resetAllData();
+                    setResetConfirm(false);
+                    setResetText("");
+                  }}
+                >
+                  Confirm Reset
+                </button>
+                <button style={btn(C.textDim)} onClick={() => { setResetConfirm(false); setResetText(""); }}>×</button>
+              </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </Card>
     </div>
   );
