@@ -7,6 +7,7 @@ export type ViewId =
   | "retroboard"
   | "actions"
   | "reports"
+  | "userguide"
   | "settings";
 
 export interface AppSettings {

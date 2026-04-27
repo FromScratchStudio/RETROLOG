@@ -9,6 +9,7 @@ import { RetroBoardView } from "./components/views/RetroBoardView";
 import { ActionsView } from "./components/views/ActionsView";
 import { ReportsView } from "./components/views/ReportsView";
 import { SettingsView } from "./components/views/SettingsView";
+import { UserGuideView } from "./components/views/UserGuideView";
 import { C } from "./theme";
 
 export default function App() {
@@ -23,6 +24,7 @@ export default function App() {
     retroboard: <RetroBoardView />,
     actions:    <ActionsView />,
     reports:    <ReportsView />,
+    userguide:  <UserGuideView />,
     settings:   <SettingsView />,
   };
 

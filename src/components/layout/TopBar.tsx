@@ -11,6 +11,7 @@ const TABS: { id: ViewId; label: string }[] = [
   { id: "retroboard", label: "RetroBoard" },
   { id: "actions",    label: "Actions" },
   { id: "reports",    label: "Reports" },
+  { id: "userguide",  label: "📖 User Guide" },
   { id: "settings",   label: "⚙ Settings" },
 ];
 
