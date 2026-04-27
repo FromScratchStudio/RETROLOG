@@ -1,73 +1,40 @@
-# React + TypeScript + Vite
+# RETROLOG
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Agile Retrospective & Project Diary** — A fully client-side SPA for capturing, analyzing and acting on team retrospectives and project events.
 
-Currently, two official plugins are available:
+## Live App
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Deployed to GitHub Pages at: **https://fromscratchstudio.github.io/RETROLOG/**
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Dashboard** — Team health sliders, at-a-glance metrics, sprint health, recent activity
+- **Projects** — Manage projects with methodology, status, color-coding, and cascade deletes
+- **Sprints** — Track sprint velocity, mood, and goals
+- **Logbook** — Date-grouped project diary entries
+- **Events** — Capture and analyze project events (problems, successes, blockers, risks, decisions, ideas) with Board + List views
+- **RetroBoard** — Sprint retrospective board with drag-assign event pool, action items, and auto-save
+- **Actions** — Kanban + list view for action items with pipeline (open → in-progress → done)
+- **Reports** — Read-only retrospective reports
+- **Settings** — App whitelabel, user identity, JSON export/import (merge/overwrite), full reset
 
-## Expanding the ESLint configuration
+## Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React 19** + **TypeScript 5** + **Vite 8**
+- **Zustand 5** with `persist` middleware → `localStorage` key `retrolog-store`
+- Inline CSS-in-JS only (no CSS framework)
+- Google Fonts: DM Serif Display + JetBrains Mono
+- No backend — 100% local storage
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Development
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev      # Start dev server
+npm run build    # Production build
+npm run lint     # Lint
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Data Persistence
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+All data is stored in `localStorage` under the key `retrolog-store`. Use **Settings → Export** to back up your data as JSON and **Import** to restore or merge data across instances.

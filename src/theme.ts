@@ -1,0 +1,33 @@
+export const C = {
+  bg:           "#0a0c10",
+  bgDeep:       "#06080c",
+  surface:      "#0d1118",
+  surfaceAlt:   "#141820",
+  surfaceHover: "#1a2030",
+  border:       "#1f2535",
+  borderLight:  "#2d3449",
+  gold:         "#c9a84c",
+  goldLight:    "#e0c070",
+  goldDim:      "#8a6e30",
+  text:         "#e8e4dc",
+  textSoft:     "#c4c0b5",
+  textMuted:    "#8a8fa8",
+  textDim:      "#555b70",
+  textVeryDim:  "#3a3f52",
+  green:        "#10b981",
+  greenDark:    "#064e3b",
+  red:          "#ef4444",
+  redDark:      "#450a0a",
+  amber:        "#f59e0b",
+  orange:       "#f97316",
+  cyan:         "#06b6d4",
+  violet:       "#8b5cf6",
+  pink:         "#ec4899",
+  blue:         "#4c7fc9",
+} as const;
+
+export const FONT = {
+  display: "'DM Serif Display', Georgia, serif",
+  mono:    "'JetBrains Mono', 'Courier New', monospace",
+  body:    "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+} as const;
