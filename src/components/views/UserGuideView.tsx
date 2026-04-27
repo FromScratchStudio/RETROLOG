@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useStore } from "../../store/useStore";
 import { C, FONT } from "../../theme";
 import { Card } from "../ui/Card";
-import { SectionTitle } from "../ui/SectionTitle";
 
 /* ─── Types ─────────────────────────────────────────────────── */
 interface Section {
@@ -401,10 +400,14 @@ export function UserGuideView() {
 
   return (
     <div>
-      <SectionTitle
-        title="User Guide"
-        subtitle="Everything you need to know about RETROLOG — step by step"
-      />
+      <div style={{ marginBottom: "1.5rem" }}>
+        <h1 style={{ fontFamily: FONT.display, fontSize: "1.5rem", color: ac, margin: "0 0 0.25rem 0" }}>
+          User Guide
+        </h1>
+        <p style={{ fontFamily: FONT.body, fontSize: "0.82rem", color: C.textMuted, margin: 0 }}>
+          Everything you need to know about RETROLOG — step by step
+        </p>
+      </div>
 
       <div style={{ display: "flex", gap: "1.25rem", alignItems: "flex-start" }}>
         {/* ── Sidebar nav ── */}
